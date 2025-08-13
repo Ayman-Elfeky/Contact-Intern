@@ -44,7 +44,7 @@ export default function Carousel({
       // }
       return {
         id: it.id ?? idx,
-        image: `https://image.tmdb.org/t/p/w500${it.image ?? it.poster_path ?? it.backdrop_path ?? ''}`,
+        image: `${import.meta.env.VITE_IMAGE_PATH}${it.image ?? it.poster_path ?? it.backdrop_path ?? ''}`,
         title: it.title ?? it.name ?? '',
         meta: it,
       }

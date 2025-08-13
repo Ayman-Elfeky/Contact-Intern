@@ -1,23 +1,16 @@
-import React, { useMemo } from 'react'
+import React, { useContext, useMemo } from 'react'
 import './Footer.css'
+import { MovieContext } from '../../app/MovieContent'
 
-const DEFAULT_POSTERS = [
-  'https://images.pexels.com/photos/26797335/pexels-photo-26797335/free-photo-of-scenic-view-of-mountains.jpeg?auto=compress&cs=tinysrgb&w=600&h=900&dpr=2',
-  'https://images.pexels.com/photos/12194487/pexels-photo-12194487.jpeg?auto=compress&cs=tinysrgb&w=600&h=900&dpr=2',
-  'https://images.pexels.com/photos/32423809/pexels-photo-32423809/free-photo-of-aerial-view-of-kayaking-at-robberg-south-africa.jpeg?auto=compress&cs=tinysrgb&w=600&h=900&dpr=2',
-  'https://images.pexels.com/photos/32296519/pexels-photo-32296519/free-photo-of-rocky-coastline-of-cape-point-with-turquoise-waters.jpeg?auto=compress&cs=tinysrgb&w=600&h=900&dpr=2',
-  'https://images.pexels.com/photos/32396739/pexels-photo-32396739/free-photo-of-serene-motorcycle-ride-through-bamboo-grove.jpeg?auto=compress&cs=tinysrgb&w=600&h=900&dpr=2',
-  'https://images.pexels.com/photos/32304900/pexels-photo-32304900/free-photo-of-scenic-view-of-cape-town-s-twelve-apostles.jpeg?auto=compress&cs=tinysrgb&w=600&h=900&dpr=2',
-  'https://images.pexels.com/photos/32437034/pexels-photo-32437034/free-photo-of-fisherman-holding-freshly-caught-red-drum-fish.jpeg?auto=compress&cs=tinysrgb&w=600&h=900&dpr=2',
-  'https://images.pexels.com/photos/32469847/pexels-photo-32469847/free-photo-of-deer-drinking-from-natural-water-source-in-wilderness.jpeg?auto=compress&cs=tinysrgb&w=600&h=900&dpr=2'
-]
 
 export default function Footer({ images, columns = 4, onPosterClick }) {
-  const posters = Array.isArray(images) && images.length ? images : DEFAULT_POSTERS
+  const {movies} = useContext(MovieContext)
+
+  const posters = movies.map(movie=>`${import.meta.env.VITE_IMAGE_PATH}${movie.backdrop_path}`)
+
   const duplicated = useMemo(() => [...posters, ...posters], [posters])
   const groupSize = Math.ceil(duplicated.length / columns)
   const groups = Array.from({ length: columns }, (_, i) => duplicated.slice(i * groupSize, (i + 1) * groupSize))
-
   const renderGrid = (copyKey) => (
     <div key={`grid-${copyKey}`} className="marquee-grid" style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}>
       {groups.map((col, idx) => (

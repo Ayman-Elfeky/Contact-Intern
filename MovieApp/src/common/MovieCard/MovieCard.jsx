@@ -14,7 +14,7 @@ export default function MovieCard({
 	return (
 		<article className="mc-card" aria-label={`${title} (${year})`}>
 			<button className="mc-posterBtn" onClick={() => onClick?.(id)} aria-label={`Open ${title}`}>
-				<div className="mc-poster" style={{ backgroundImage: `(${posterUrl})` }} />
+				<div className="mc-poster" style={{ backgroundImage: `url(${import.meta.env.VITE_IMAGE_PATH}${posterUrl})` }} />
 			</button>
 			<div className="mc-meta">
 				<h3 className="mc-title" title={title}>{title}</h3>
