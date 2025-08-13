@@ -1,0 +1,46 @@
+// Search API Endpoint
+https://api.themoviedb.org/3/search/multi       //query=${}?api_key=${apiKey}
+// Image Link
+https://image.tmdb.org/t/p/w500/                 //data?api_key=${apiKey}
+
+----------------------------------------------------------------------
+
+// Movie API Endpoints
+// filter and sort discover api
+https://api.themoviedb.org/3/discover/movie
+
+// Movie Top Rated api
+https://api.themoviedb.org/3/movie/top_rated
+
+// Movie details api
+https://api.themoviedb.org/3/movie/         //id?api_key=
+
+// Movie trending api
+https://api.themoviedb.org/3/trending/tv/week
+
+// Movie most popular api
+https://api.themoviedb.org/3/movie/popular
+
+----------------------------------------------------------------------
+
+// TV API Endpoints
+// TV Top Rated api
+https://api.themoviedb.org/3/tv/top_rated
+
+// TV details api
+https://api.themoviedb.org/3/tv/               //id?api_key=
+
+// TV most popular api
+https://api.themoviedb.org/3/tv/popular
+
+// TV Trending api
+https://api.themoviedb.org/3/trending/tv/week
+
+----------------------------------------------------------------------
+
+// People API Endpoints
+// Popular People api
+https://api.themoviedb.org/3/person/popular
+
+// person details api
+https://api.themoviedb.org/3/person/        //id?api_key=
