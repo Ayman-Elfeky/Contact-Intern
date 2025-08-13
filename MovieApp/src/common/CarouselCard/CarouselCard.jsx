@@ -1,9 +1,9 @@
+import React from 'react'
 
-
-function CarouselCard(){
-    return(
-        <>
-        
-        </>
-    )
+export default function CarouselCard() {
+  return (
+    <div>
+      
+    </div>
+  )
 }
