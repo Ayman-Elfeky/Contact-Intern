@@ -4,15 +4,17 @@ import { fetchDiscoverMedia } from './homeApi'
 export default function Home() {
   const [movies, setMovies] = useState([]);
 
- useEffect(() => {
-  async function getData() {
-    let data = await fetchDiscoverMedia('movie');
-    console.log(data)
-    setMovies(data)
-  }
-  getData();
-  
- }, []);
+  // image api : https://image.tmdb.org/t/p/w500/
+
+  useEffect(() => {
+    async function getData() {
+      let data = await fetchDiscoverMedia('movie');
+      console.log(data)
+      setMovies(data)
+    }
+    getData();
+
+  }, []);
 
   return (
     <>
