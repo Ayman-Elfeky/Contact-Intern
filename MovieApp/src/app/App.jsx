@@ -1,22 +1,16 @@
-import { useState } from 'react'
-import './App.css'
-import Carousel from '../common/Carousel/Carousel'
-import NavBar from '../common/NavBar/NavBar'
-import Footer from '../common/Footer/Footer'
-import MovieCard from '../common/MovieCard/MovieCard'
-import Home from '../features/Home/Home'
+import { useState } from "react";
+import "./App.css";
+import Home from "../features/Home/Home";
+import MovieProvider from "./MovieContent";
 
 function App() {
-
   return (
     <>
-    {/* <NavBar />
-    <Carousel />
-    <MovieCard />
-    <Footer /> */}
-    <Home />
+    <MovieProvider>
+      <Home />
+    </MovieProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

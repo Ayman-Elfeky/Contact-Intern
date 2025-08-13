@@ -1,19 +1,14 @@
-import React, { useMemo, useRef } from 'react'
+import React, { useContext, useMemo, useRef } from 'react'
 import './Carousel.css'
 import CarouselCard from '../CarouselCard/CarouselCard'
 import ThreeDHoverGallery from '../../components/lightswind/3d-hover-gallery'
+import { MovieContext } from '../../app/MovieContent'
 
 const DEFAULT_IMAGES = [
-  'https://images.pexels.com/photos/26797335/pexels-photo-26797335/free-photo-of-scenic-view-of-mountains.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  'https://images.pexels.com/photos/12194487/pexels-photo-12194487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  'https://images.pexels.com/photos/32423809/pexels-photo-32423809/free-photo-of-aerial-view-of-kayaking-at-robberg-south-africa.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  'https://images.pexels.com/photos/32296519/pexels-photo-32296519/free-photo-of-rocky-coastline-of-cape-point-with-turquoise-waters.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  'https://images.pexels.com/photos/32396739/pexels-photo-32396739/free-photo-of-serene-motorcycle-ride-through-bamboo-grove.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  'https://images.pexels.com/photos/32304900/pexels-photo-32304900/free-photo-of-scenic-view-of-cape-town-s-twelve-apostles.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+  "","","","",""
 ]
 
 export default function Carousel({
-  items,
   onSelect,
   // Variant: '3d' hover gallery (default) or 'scroll' simple carousel
   variant = '3d',
@@ -37,22 +32,24 @@ export default function Carousel({
   autoPlay = false,
   autoPlayDelay = 3000,
 }) {
+  const { movies } = useContext(MovieContext);
+
   const viewportRef = useRef(null)
 
   const normalizedItems = useMemo(() => {
-    const source = items && items.length ? items : DEFAULT_IMAGES
+    const source = movies && movies.length ? movies : DEFAULT_IMAGES
     return source.map((it, idx) => {
-      if (typeof it === 'string') {
-        return { id: idx, image: it, title: '' }
-      }
+      // if (typeof it === 'string') {
+      //   return { id: idx, image: it, title: '' }
+      // }
       return {
         id: it.id ?? idx,
-        image: it.image ?? it.poster_path ?? it.backdrop_path ?? '',
+        image: `https://image.tmdb.org/t/p/w500${it.image ?? it.poster_path ?? it.backdrop_path ?? ''}`,
         title: it.title ?? it.name ?? '',
         meta: it,
       }
     })
-  }, [items])
+  }, [movies])
 
   if (variant === '3d') {
     const images = normalizedItems.map((x) => x.image || '').filter(Boolean)
