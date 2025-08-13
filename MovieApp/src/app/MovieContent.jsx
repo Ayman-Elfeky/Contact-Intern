@@ -17,8 +17,8 @@ export default function MovieProvider ({children}) {
             setFavourites([...favourites, movie])
         }
     }
-
     const removeFromFavourites = (id) => {
+
         setFavourites(favourites.filter((movie) => movie.id !== id))
     }
 
