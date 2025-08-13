@@ -4,15 +4,17 @@ import Carousel from '../common/Carousel/Carousel'
 import NavBar from '../common/NavBar/NavBar'
 import Footer from '../common/Footer/Footer'
 import MovieCard from '../common/MovieCard/MovieCard'
+import Home from '../features/Home/Home'
 
 function App() {
 
   return (
     <>
-    <NavBar />
+    {/* <NavBar />
     <Carousel />
     <MovieCard />
-    <Footer />
+    <Footer /> */}
+    <Home />
     </>
   )
 }
