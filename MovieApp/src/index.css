@@ -1,0 +1,26 @@
+html, body, #root {
+	height: 100%;
+}
+
+:root {
+	--bg: #0b0b10;
+	--panel: #0f0f15;
+	--text: #e5e7eb;
+	--muted: #9ca3af;
+	--border: rgba(255,255,255,0.08);
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a { color: inherit; }
+
+hr { border-color: var(--border); }
+
+* { box-sizing: border-box; }

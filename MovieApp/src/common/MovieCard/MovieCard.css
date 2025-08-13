@@ -1,0 +1,93 @@
+.mc-card {
+	width: 180px;
+	color: var(--text, #e5e7eb);
+}
+
+.mc-posterBtn {
+	appearance: none;
+	border: none;
+	padding: 0;
+	background: transparent;
+	width: 100%;
+	border-radius: 14px;
+	overflow: hidden;
+	cursor: pointer;
+	box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+.mc-posterBtn:focus-visible {
+	outline: 2px solid #60a5fa;
+	outline-offset: 2px;
+}
+
+.mc-poster {
+	width: 100%;
+	aspect-ratio: 2/3;
+	background-size: cover;
+	background-position: center;
+	transition: transform 200ms ease;
+}
+
+.mc-posterBtn:hover .mc-poster {
+	transform: scale(1.04);
+}
+
+.mc-meta {
+	padding: 8px 2px 0;
+}
+
+.mc-title {
+	margin: 0;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.2;
+	max-height: 2.4em;
+	overflow: hidden;
+}
+
+.mc-sub {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	color: var(--muted, #9ca3af);
+	font-size: 12px;
+	margin-top: 4px;
+}
+
+.mc-dot {
+	opacity: 0.6;
+}
+
+.mc-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 8px;
+}
+
+.mc-rating {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	background: rgba(255,255,255,0.06);
+	border: 1px solid rgba(255,255,255,0.08);
+	border-radius: 999px;
+	padding: 2px 8px;
+	font-size: 12px;
+}
+
+.mc-star { color: #fbbf24; }
+
+.mc-favBtn {
+	appearance: none;
+	border: 1px solid rgba(255,255,255,0.12);
+	background: rgba(255,255,255,0.04);
+	color: #f87171;
+	border-radius: 999px;
+	padding: 4px 8px;
+	cursor: pointer;
+}
+
+.mc-favBtn:hover {
+	background: rgba(248,113,113,0.12);
+}
