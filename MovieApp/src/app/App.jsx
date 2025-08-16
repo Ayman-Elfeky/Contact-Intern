@@ -11,11 +11,13 @@ function App() {
     <>
       <BrowserRouter>
         <MovieProvider>
-          {/* <NavBar /> */}
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/movie/:id" element={<MovieDetails />} />
-          </Routes>
+          <NavBar />
+          <div className="app-main-content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/movie/:id" element={<MovieDetails />} />
+            </Routes>
+          </div>
         </MovieProvider>
       </BrowserRouter>
     </>

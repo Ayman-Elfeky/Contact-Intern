@@ -70,6 +70,9 @@ export default function Footer({ images, columns = 4, onPosterClick }) {
           </div>
         </div>
       </div>
+      <div style={{ width: '100%', textAlign: 'center', marginTop: '1.5rem', color: '#bbb', fontSize: '0.95rem', letterSpacing: '0.02em' }}>
+        &copy; {new Date().getFullYear()} Contact. All rights reserved.
+      </div>
     </footer>
   )
 }

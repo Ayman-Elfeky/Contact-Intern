@@ -1,4 +1,24 @@
-html, body, #root {
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+	background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #ffd700;
+	border-radius: 8px;
+	border: 2px solid #000;
+	border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: #0B0B10;
+}
+
+html,
+body,
+#root {
 	height: 100%;
 }
 
@@ -7,7 +27,7 @@ html, body, #root {
 	--panel: #0f0f15;
 	--text: #e5e7eb;
 	--muted: #9ca3af;
-	--border: rgba(255,255,255,0.08);
+	--border: rgba(255, 255, 255, 0.08);
 }
 
 body {
@@ -19,8 +39,14 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-a { color: inherit; }
+a {
+	color: inherit;
+}
 
-hr { border-color: var(--border); }
+hr {
+	border-color: var(--border);
+}
 
-* { box-sizing: border-box; }
+* {
+	box-sizing: border-box;
+}

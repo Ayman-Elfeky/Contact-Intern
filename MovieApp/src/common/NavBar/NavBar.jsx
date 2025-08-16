@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './NavBar.css'
 import { cn } from '../../components/lib/utils'
+import { Link } from 'react-router'
 
 export default function NavBar({ onNavigate, activeLink }) {
 	const navRef = useRef(null)
@@ -55,20 +56,19 @@ export default function NavBar({ onNavigate, activeLink }) {
 		<nav
 			ref={navRef}
 			className={cn('ci-nav', 'border')}
-			style={{ backgroundColor, color: textColor }}
+			style={{ color: textColor }}
 		>
 			<div ref={highlightRef} className="ci-nav__highlight" style={{ backgroundColor: highlightColor }} />
 			<ul className="ci-nav__list">
 				{links.map((link) => (
 					<li key={link.id} className="ci-nav__item" id={`nav-item-${link.id}`}>
-						<a
-							href={link.href}
+						<Link to={'/'}
 							className={cn('ci-nav__link', active === link.id && 'is-active')}
-							onClick={(e) => handleLinkClick(link.id, e)}
-							onMouseEnter={() => handleLinkHover(link.id)}
-						>
+							// onClick={(e) => handleLinkClick(link.id, e)}
+							onMouseEnter={() => handleLinkHover(link.id)}>
 							{link.label}
-						</a>
+						</Link>
+
 					</li>
 				))}
 			</ul>

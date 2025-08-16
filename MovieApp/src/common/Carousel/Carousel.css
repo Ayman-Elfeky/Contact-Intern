@@ -9,13 +9,17 @@
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-  display: grid;
+  display: flex;
+  width: 100%;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
 }
 
 .ci-track {
-  display: inline-flex;
+  display: flex;
   align-items: stretch;
-  padding: 8px 32px;
+  width: 100%;
+  gap: 0.5rem;
 }
 
 .ci-item {
