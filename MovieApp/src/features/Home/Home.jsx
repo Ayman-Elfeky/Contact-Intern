@@ -10,7 +10,7 @@ export default function Home() {
       {/* <NavBar /> */}
       <div className="home">
         <Carousel />
-        <MoviesContainer />
+        <MoviesContainer movieType={'movies'}/>
         <Footer />
       </div>
     </>
