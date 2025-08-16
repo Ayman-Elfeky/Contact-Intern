@@ -5,7 +5,7 @@ import { Link } from 'react-router'
 
 
 export default function Footer({ images, columns = 4, onPosterClick }) {
-  const { movies } = useContext(MovieContext)
+  const { movies, loading, error } = useContext(MovieContext)
 
   const posters = movies.map(movie => {
     return {
@@ -46,6 +46,14 @@ export default function Footer({ images, columns = 4, onPosterClick }) {
       ))}
     </div>
   )
+
+  if(loading) {
+    return <h1>Loading...</h1>
+  }
+
+  if(error) {
+    return <h1>Something Went Wrong</h1>
+  }
 
   return (
     <footer className="footer-marquee" aria-label="Movie posters marquee">
