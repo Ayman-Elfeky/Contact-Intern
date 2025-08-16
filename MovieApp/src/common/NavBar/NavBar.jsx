@@ -9,11 +9,11 @@ export default function NavBar({ onNavigate, activeLink }) {
 	const [active, setActive] = useState(activeLink || 'home')
 
 	const links = [
-		{ id: 'home', label: 'Home', href: '#home' },
-		{ id: 'trending', label: 'Trending', href: '#trending' },
-		{ id: 'genres', label: 'Genres', href: '#genres' },
-		{ id: 'favourites', label: 'Favourites', href: '#favourites' },
-		{ id: 'search', label: 'Search', href: '#search' },
+		{ id: 'home', label: 'Home', href: 'home' },
+		{ id: 'trending', label: 'Trending', href: 'trending' },
+		{ id: 'genres', label: 'Genres', href: 'genres' },
+		{ id: 'favourites', label: 'Favourites', href: 'favourites' },
+		{ id: 'search', label: 'Search', href: 'search' },
 	]
 
 	const backgroundColor = 'rgba(15,15,20,0.8)'
@@ -62,7 +62,7 @@ export default function NavBar({ onNavigate, activeLink }) {
 			<ul className="ci-nav__list">
 				{links.map((link) => (
 					<li key={link.id} className="ci-nav__item" id={`nav-item-${link.id}`}>
-						<Link to={'/'}
+						<Link to={link.href === 'home' ? `/` : `/${link.href}`}
 							className={cn('ci-nav__link', active === link.id && 'is-active')}
 							// onClick={(e) => handleLinkClick(link.id, e)}
 							onMouseEnter={() => handleLinkHover(link.id)}>

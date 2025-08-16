@@ -39,7 +39,7 @@ export default function MovieCard({
 						<button className="mc-favBtn" onClick={() => onFavourite?.()} aria-label="Add to favourites">♥</button>
 					)}
 					{type === 'favourites' && (
-						<button className="mc-favBtn" onClick={() => onRemoveFavourite?.()} aria-label="Remove from favourites">♥</button>
+						<button className="mc-deleteBtn" onClick={() => onRemoveFavourite?.()} aria-label="Remove from favourites">❌</button>
 					)}
 				</div>
 			</div>
