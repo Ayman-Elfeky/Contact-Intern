@@ -1,0 +1,207 @@
+/* MovieDetails.css */
+
+.movie-details-container {
+    min-height: 100vh;
+    width: 98.9vw;
+    overflow-x: hidden;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* position: relative; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.movie-details-blur {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+    background: rgba(20, 20, 30, 0.45);
+    /* backdrop-filter: blur(12px) brightness(0.85); */
+}
+
+
+.movie-details-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    background: rgba(30, 30, 40, 0.82);
+    border-radius: 20px;
+    box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.35);
+    padding: 2rem 1.5rem;
+    max-width: 800px;
+    width: 96vw;
+    color: #fff;
+    margin: 2.5rem auto;
+}
+
+
+.movie-details-poster {
+    width: 180px;
+    min-width: 120px;
+    max-width: 200px;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.45);
+    object-fit: cover;
+    background: #222;
+}
+
+.movie-details-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.1rem;
+}
+
+.movie-details-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 1px;
+    color: #ffb92a;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.movie-details-tagline {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #ffd700cc;
+    margin-bottom: 0.5rem;
+}
+
+.movie-details-genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.movie-details-genre {
+    background: #222c3a;
+    color: #ffb92a;
+    padding: 0.3rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.98rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.18);
+}
+
+.movie-details-overview {
+    text-align: center;
+    font-size: 1.13rem;
+    color: #e0e0e0;
+    margin: 0.5rem 0 0.7rem 0;
+    line-height: 1.6;
+}
+
+.movie-details-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    font-size: 1.05rem;
+    color: #ffd700;
+}
+
+.movie-details-production {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    margin: 1rem 0;
+    color: #fff;
+}
+
+.movie-details-companies {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin-top: 0.4rem;
+}
+
+.movie-details-company {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.07);
+    padding: 0.3rem 0.7rem;
+    border-radius: 8px;
+}
+
+.movie-details-company-logo {
+    height: 28px;
+    width: auto;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.13);
+    margin-right: 0.3rem;
+}
+
+.movie-details-homepage {
+    display: inline-block;
+    margin-top: 1.2rem;
+    background: linear-gradient(90deg, #ffb92a 60%, #ffd700 100%);
+    color: #222c3a;
+    font-weight: 700;
+    padding: 0.7rem 1.7rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.18);
+    transition: background 0.2s, color 0.2s;
+}
+
+.movie-details-homepage:hover {
+    background: linear-gradient(90deg, #ffd700 60%, #ffb92a 100%);
+    color: #111;
+}
+
+/* Loading and error states */
+.movie-details-loading,
+.movie-details-error {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #ffb92a;
+    background: #181818;
+}
+
+@media (max-width: 900px) {
+    .movie-details-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 1.2rem 0.5rem;
+        gap: 1.2rem;
+    }
+
+    .movie-details-poster {
+        width: 60vw;
+        max-width: 220px;
+        min-width: 100px;
+    }
+
+    .movie-details-info {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .movie-details-meta {
+        justify-content: center;
+    }
+
+    .movie-details-companies {
+        justify-content: center;
+    }
+}

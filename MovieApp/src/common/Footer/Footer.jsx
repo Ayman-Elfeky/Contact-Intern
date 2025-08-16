@@ -1,12 +1,18 @@
 import React, { useContext, useMemo } from 'react'
 import './Footer.css'
 import { MovieContext } from '../../app/MovieContent'
+import { Link } from 'react-router'
 
 
 export default function Footer({ images, columns = 4, onPosterClick }) {
-  const {movies} = useContext(MovieContext)
+  const { movies } = useContext(MovieContext)
 
-  const posters = movies.map(movie=>`${import.meta.env.VITE_IMAGE_PATH}${movie.backdrop_path}`)
+  const posters = movies.map(movie => {
+    return {
+      image: `${import.meta.env.VITE_IMAGE_PATH}${movie.backdrop_path}`,
+      id: movie.id
+    }
+  })
 
   const duplicated = useMemo(() => [...posters, ...posters], [posters])
   const groupSize = Math.ceil(duplicated.length / columns)
@@ -24,15 +30,17 @@ export default function Footer({ images, columns = 4, onPosterClick }) {
         >
           <div className="marquee-col-line" />
           {col.map((src, i) => (
-            <div key={`img-${copyKey}-${idx}-${i}`} className="marquee-item">
-              <div className="marquee-row-line" />
-              <img
-                src={typeof src === 'string' ? src : src?.src}
-                alt="Movie poster"
-                className="marquee-img"
-                onClick={() => onPosterClick?.(src, (idx * groupSize) + i)}
-              />
-            </div>
+            <Link to={`/movie/${src.id}`}>
+              <div key={`img-${copyKey}-${idx}-${i}`} className="marquee-item">
+                <div className="marquee-row-line" />
+                <img
+                  src={typeof src.image === 'string' ? src.image : src?.src.image}
+                  alt="Movie poster"
+                  className="marquee-img"
+                  onClick={() => onPosterClick?.(src.image, (idx * groupSize) + i)}
+                />
+              </div>
+            </Link>
           ))}
         </div>
       ))}

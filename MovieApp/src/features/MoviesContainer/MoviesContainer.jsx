@@ -5,30 +5,30 @@ import "./MoviesContainer.css"
 
 export default function MoviesContainer() {
   const { movies } = useContext(MovieContext);
-  function goToMovie(id){
+  function goToMovie(id) {
     console.log(id)
   }
-  function addToFav(id){
+  function addToFav(id) {
     console.log(id)
   }
   return (
     <div className='movie-container'>
-   {movies.map(movie=> {
-    return (
-      <MovieCard 
-      id={movie.id}
-      title={movie.title}
-      year={movie.release_date}
-      rating={movie.vote_average}
-      posterUrl={movie.backdrop_path}
-      genres={movie.genre_ids}
-      onClick={() => goToMovie(movie.id)}
-      onFavourite={() => addToFav(movie.id)}
-      />
-    )
-  }
-)}
+      {movies.map(movie => {
+        return (
+          <MovieCard
+            id={movie.id}
+            title={movie.title}
+            year={movie.release_date}
+            rating={movie.vote_average}
+            posterUrl={movie.backdrop_path}
+            genres={movie.genre_ids}
+            onClick={() => goToMovie(movie.id)}
+            onFavourite={() => addToFav(movie.id)}
+          />
+        )
+      }
+      )}
 
- </div>
- )
+    </div>
+  )
 }

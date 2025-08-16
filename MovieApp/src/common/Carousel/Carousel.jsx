@@ -5,7 +5,7 @@ import ThreeDHoverGallery from '../../components/lightswind/3d-hover-gallery'
 import { MovieContext } from '../../app/MovieContent'
 
 const DEFAULT_IMAGES = [
-  "","","","",""
+  "", "", "", "", ""
 ]
 
 export default function Carousel({
@@ -113,6 +113,7 @@ export default function Carousel({
               style={{ minWidth: `${itemWidth}px` }}
             >
               <CarouselCard
+                movieId={item.id}
                 image={item.image}
                 title={item.title}
                 onClick={() => onSelect?.(item, index)}
