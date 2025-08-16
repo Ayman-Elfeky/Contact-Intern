@@ -1,7 +1,7 @@
 .mc-deleteBtn {
 	appearance: none;
-	border: 1px solid rgba(255,255,255,0.18);
-	background: rgba(0,0,0,0.12);
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	background: rgba(0, 0, 0, 0.12);
 	color: #fff;
 	border-radius: 999px;
 	padding: 4px 10px;
@@ -15,6 +15,7 @@
 	color: #fff;
 	border-color: #f87171;
 }
+
 .mc-card {
 	width: 180px;
 	color: var(--text, #e5e7eb);
@@ -29,7 +30,7 @@
 	border-radius: 14px;
 	overflow: hidden;
 	cursor: pointer;
-	box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 .mc-posterBtn:focus-visible {
@@ -86,19 +87,21 @@
 	display: inline-flex;
 	align-items: center;
 	gap: 6px;
-	background: rgba(255,255,255,0.06);
-	border: 1px solid rgba(255,255,255,0.08);
+	background: rgba(255, 255, 255, 0.06);
+	border: 1px solid rgba(255, 255, 255, 0.08);
 	border-radius: 999px;
 	padding: 2px 8px;
 	font-size: 12px;
 }
 
-.mc-star { color: #fbbf24; }
+.mc-star {
+	color: #fbbf24;
+}
 
 .mc-favBtn {
 	appearance: none;
-	border: 1px solid rgba(255,255,255,0.12);
-	background: rgba(255,255,255,0.04);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	background: rgba(255, 255, 255, 0.04);
 	color: #f87171;
 	border-radius: 999px;
 	padding: 4px 8px;
@@ -106,5 +109,5 @@
 }
 
 .mc-favBtn:hover {
-	background: rgba(248,113,113,0.12);
+	background: rgba(248, 113, 113, 0.12);
 }

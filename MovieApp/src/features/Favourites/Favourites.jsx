@@ -10,7 +10,7 @@ export default function Favourites() {
     <div style={{ marginTop: '20px', padding: '20px'}}>
       <h1 style={{ textAlign: 'center', color: '#ffd700' }}>My Favourites</h1>
       <div className='movie-container'>
-        {favourites && favourites.map(movie => (
+        {favourites.length !== 0 ? favourites.map(movie => (
           <MovieCard
             key={movie.id}
             id={movie.id}
@@ -23,7 +23,8 @@ export default function Favourites() {
             onRemoveFavourite={() => removeFromFavourites(movie.id)}
             type='favourites'
           />
-        ))}
+        )) :
+        <h1 style={{ width: '94vw', textAlign: 'center', color: '#ceaf00ff' }}>No favourites found</h1>}
       </div>
     </div>
   )
