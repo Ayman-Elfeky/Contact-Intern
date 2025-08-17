@@ -12,6 +12,10 @@ export default function MoviesContainer({ movieType }) {
     return <h1>Loading...</h1>;
   }
 
+  function goToMovie() {
+    console.log("WOW")
+  }
+
   if (error) {
     return <h1>Something Went Wrong</h1>;
   }
@@ -32,7 +36,11 @@ export default function MoviesContainer({ movieType }) {
             posterUrl={movie.backdrop_path}
             genres={movie.genre_ids}
             onClick={() => goToMovie(movie.id)}
-            onFavourite={() => addToFavourites(movie)}
+            onFavourite={(e) => {
+              e.stopPropagation();
+              e.target.style.color = '#f87171'
+              addToFavourites(movie);
+            }}
             onRemoveFavourite={() => removeFromFavourites(movie.id)}
             type={movieType}
           />

@@ -37,7 +37,7 @@ export default function MovieProvider({ children }) {
     const addToFavourites = (movie) => {
         console.log("Adding to favourites: ", movie);
         if (!favourites.find((fav) => fav.id === movie.id)) {
-            setFavourites([...favourites, movie])
+            setFavourites([...favourites, movie]);
         }
     }
     const removeFromFavourites = (id) => {

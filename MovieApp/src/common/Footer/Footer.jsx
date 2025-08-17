@@ -31,6 +31,7 @@ export default function Footer({ images, columns = 4, onPosterClick }) {
           <div className="marquee-col-line" />
           {col.map((src, i) => (
             <Link to={`/movie/${src.id}`}>
+              {/* {console.log(src.id)} */}
               <div key={`img-${copyKey}-${idx}-${i}`} className="marquee-item">
                 <div className="marquee-row-line" />
                 <img

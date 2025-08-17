@@ -10,18 +10,18 @@ const DEFAULT_IMAGES = ["", "", "", "", ""];
 export default function Carousel({
   onSelect,
   variant = "3d",
-  itemWidth = 220,
+  itemWidth = 150,
   itemGap = 16,
   className,
   ariaLabel = "carousel",
   itemHeightVW = 20,
-  perspective = 35,
-  hoverScale = 1,
+  perspective = 800,
+  hoverScale = 0.5,
   transitionDuration = 1.25,
   backgroundColor,
   grayscaleStrength = 1,
   brightnessLevel = 0.5,
-  activeWidth = 45,
+  activeWidth = 20,
   rotationAngle = 35,
   zDepth = 10,
   enableKeyboardNavigation = true,
@@ -49,7 +49,7 @@ export default function Carousel({
 
   // 3D Variant
   const render3D = () => {
-    normalizedItems.length = 15
+    normalizedItems.length = 6
     const images = normalizedItems
       .map((x) => x.image || "")
       .filter(Boolean)
