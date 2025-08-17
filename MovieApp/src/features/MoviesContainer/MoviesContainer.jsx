@@ -26,9 +26,9 @@ export default function MoviesContainer({ movieType }) {
         {movieType === 'favourites' ? 'Favourites' : 'Movies'} Section
       </h1>
       <div className='movie-container'>
-        {list && list.map(movie => (
+        {list && list.map((movie, idx) => (
           <MovieCard
-            key={movie.id}
+            key={idx}
             id={movie.id}
             title={movie.title}
             year={movie.release_date}
@@ -38,11 +38,18 @@ export default function MoviesContainer({ movieType }) {
             onClick={() => goToMovie(movie.id)}
             onFavourite={(e) => {
               e.stopPropagation();
-              e.target.style.color = '#f87171'
-              addToFavourites(movie);
+              console.log("sambosa:", e.target.style.color === 'rgb(248, 113, 113)')
+              if(e.target.style.color === 'rgb(248, 113, 113)') {
+                removeFromFavourites(movie.id);
+                e.target.style.color = 'rgb(238, 219, 219)'
+              } else {
+                e.target.style.color = '#f87171ff'
+                addToFavourites(movie);
+              }
             }}
             onRemoveFavourite={() => removeFromFavourites(movie.id)}
             type={movieType}
+            isFavourite={movie.isFavourite}
           />
         ))}
       </div>

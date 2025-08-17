@@ -4,12 +4,12 @@ import { fetchDiscoverMedia } from '../features/Home/homeApi';
 export const MovieContext = createContext(null);
 
 export default function MovieProvider({ children }) {
-    const [movies, setMovies] = useState([]);
+    // const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
 
-    const [favourites, setFavourites] = useState(() => {
-        const saved = localStorage.getItem("favourites");
+    const [movies, setMovies] = useState(() => {
+        const saved = localStorage.getItem("movies");
         return saved ? JSON.parse(saved) : []
     })
 
@@ -17,9 +17,15 @@ export default function MovieProvider({ children }) {
     useEffect(() => {
         async function getData() {
             try {
-                let data = await fetchDiscoverMedia("movie");
-                console.log(data);
-                setMovies(data);
+                let res = await fetchDiscoverMedia("movie");
+                let data = res.map((movie) => {
+                    return {
+                        ...movie,
+                        isFavourite: false
+                    }
+                })
+                console.log("Fetched Movies: ", data[0]);
+                setMovies((prev) => prev.length === 0 ? data : prev);
             } catch (error) {
                 setError(true)
                 console.log("Error From Movie Context: ", error.message)
@@ -31,22 +37,23 @@ export default function MovieProvider({ children }) {
     }, []);
 
     useEffect(() => {
-        localStorage.setItem("favourites", JSON.stringify(favourites))
-    }, [favourites]);
+        localStorage.setItem("movies", JSON.stringify(movies))
+    }, [movies]);
 
     const addToFavourites = (movie) => {
         console.log("Adding to favourites: ", movie);
-        if (!favourites.find((fav) => fav.id === movie.id)) {
-            setFavourites([...favourites, movie]);
+        if (!movies.find((fav) => {fav.id === movie.id && movie.isFavourite})) {
+            movie.isFavourite = true;
+            setMovies([...movies, movie]);
         }
     }
     const removeFromFavourites = (id) => {
         console.log("Removing from favourites: ", id);
-        setFavourites(favourites.filter((movie) => movie.id !== id))
+        setMovies((prev) => prev.map((movie)));
     }
 
     return (
-        <MovieContext.Provider value={{ favourites, addToFavourites, removeFromFavourites, movies, loading, error }}>
+        <MovieContext.Provider value={{ movies, addToFavourites, removeFromFavourites, loading, error }}>
             {children}
         </MovieContext.Provider>
     )

@@ -13,6 +13,7 @@ export default function MovieCard({
 	onFavourite,
 	onRemoveFavourite,
 	type = 'movies',
+	isFavourite
 }) {
 	return (
 		<article className="mc-card" aria-label={`${title} (${year})`}>
@@ -36,7 +37,7 @@ export default function MovieCard({
 						<span>{Number(rating).toFixed(1)}</span>
 					</div>
 					{type === 'movies' && (
-						<button className="mc-favBtn" onClick={(e) => onFavourite?.(e)} aria-label="Add to favourites">♥</button>
+						<button className='mc-favBtn' style={{ color: isFavourite ? '#f87171' : '#eedbdb' }} onClick={(e) => onFavourite?.(e)} aria-label="Add to favourites">♥</button>
 					)}
 					{type === 'favourites' && (
 						<button className="mc-deleteBtn" onClick={() => onRemoveFavourite?.()} aria-label="Remove from favourites">❌</button>
