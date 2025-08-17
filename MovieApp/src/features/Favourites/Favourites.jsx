@@ -4,13 +4,14 @@ import MovieCard from "../../common/MovieCard/MovieCard"
 import '../MoviesContainer/MoviesContainer.css'
 
 export default function Favourites() {
-  const { favourites, removeFromFavourites } = useContext(MovieContext)
+  const { movies, removeFromFavourites } = useContext(MovieContext)
 
   return (
     <div style={{ marginTop: '20px', padding: '20px'}}>
       <h1 style={{ textAlign: 'center', color: '#ffd700' }}>My Favourites</h1>
       <div className='movie-container'>
-        {favourites.length !== 0 ? favourites.map(movie => (
+        {movies.length !== 0 ? movies.map(movie => (
+          movie.isFavourite &&
           <MovieCard
             key={movie.id}
             id={movie.id}

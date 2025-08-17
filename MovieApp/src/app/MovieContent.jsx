@@ -49,7 +49,7 @@ export default function MovieProvider({ children }) {
     }
     const removeFromFavourites = (id) => {
         console.log("Removing from favourites: ", id);
-        setMovies((prev) => prev.map((movie)));
+        setMovies((prev) => prev.map((prev.id === id? {...prev, isFavourite: false} : prev)));
     }
 
     return (

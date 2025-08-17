@@ -5,7 +5,6 @@ import "./MoviesContainer.css"
 
 export default function MoviesContainer({ movieType }) {
   const { movies, favourites, loading, error, addToFavourites, removeFromFavourites } = useContext(MovieContext);
-  // Choose which list to show based on movieType prop
   const list = movieType === 'favourites' ? favourites : movies;
 
   if (loading) {
